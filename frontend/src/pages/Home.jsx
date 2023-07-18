@@ -14,6 +14,8 @@ import { BsArrowRight } from 'react-icons/bs';
 import About from '../components/About';
 import ServiceList from '../components/ServiceList';
 import DoctorList from '../components/DoctorList';
+import FaqList from '../components/FaqList';
+import Testimonial from '../components/Testimonial';
 
 const Home = () => {
   return (
@@ -187,7 +189,7 @@ const Home = () => {
         </div>
       </section>
       {/* feature section */}
-      
+
       {/* Doctors section */}
       <section>
         <div className="container">
@@ -206,10 +208,27 @@ const Home = () => {
         <div className="container">
           <div className="flex justify-between gap-[50px] lg:gap-0">
             <div className='w-1/2 hidden md:block'><img src={faqImg} alt="" /></div>
+            <div className="w-full md:w-1/2">
+              <h2 className="heading">Most questions by our beloved patients</h2>
+              <FaqList />
+            </div>
           </div>
         </div>
       </section>
       {/* Faq section end */}
+
+      {/* Testimonials section */}
+      <section>
+        <div className="container">
+          <div className="xl:w-[470px] mx-auto">
+            <h2 className='heading text-center'>What our patients say</h2>
+            <p className='text_para text-center'>World-class care for everyone. Our health system offers unmatched health services.</p>
+          </div>
+          <Testimonial />
+        </div>
+      </section>
+      {/* Testimonials section end */}
+
     </>
   )
 }
