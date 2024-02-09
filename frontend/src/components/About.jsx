@@ -17,8 +17,8 @@ const About = () => {
                 {/* about content */}
                 <div className="w-full lg:w-1/2 xl:w-[670px] order-1 lg:order-2">
                     <h2 className='heading'>Proud to be one of the nations best</h2>
-                    <p className='text_para'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam debitis repudiandae vero fuga velit? Adipisci provident rerum cupiditate ducimus omnis, est tempore illum ut beatae minus dolorem similique sequi quod?</p>
-                    <p className="text_para mt-[30px]">Lorem ipsum dolor sit amet consectetur adipisicing elit. A, magni amet labore, mollitia iusto, nobis dolorum quasi voluptate architecto officia blanditiis voluptates aut. Quam ducimus error ut nesciunt atque a!</p>
+                    <p className='text__para'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam debitis repudiandae vero fuga velit? Adipisci provident rerum cupiditate ducimus omnis, est tempore illum ut beatae minus dolorem similique sequi quod?</p>
+                    <p className="text__para mt-[30px]">Lorem ipsum dolor sit amet consectetur adipisicing elit. A, magni amet labore, mollitia iusto, nobis dolorum quasi voluptate architecto officia blanditiis voluptates aut. Quam ducimus error ut nesciunt atque a!</p>
                     <Link to='/'>
                         <button className='btn'>Learn More</button>
                     </Link>

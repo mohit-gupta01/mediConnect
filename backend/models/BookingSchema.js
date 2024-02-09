@@ -1,14 +1,14 @@
-import mongoose from "mongoose";
+const mongoose = require('mongoose');
 
 const bookingSchema = new mongoose.Schema(
   {
     doctor: {
-      type: mongoose.Types.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
       ref: "Doctor",
       required: true,
     },
     user: {
-      type: mongoose.Types.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
       ref: "User",
       required: true,
     },
@@ -30,4 +30,5 @@ const bookingSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-export default mongoose.model("Booking", bookingSchema);
+const BookingModel = mongoose.model("Booking", bookingSchema);
+module.exports = BookingModel;

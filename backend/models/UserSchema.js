@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require('mongoose');
 
 const UserSchema = new mongoose.Schema({
   email: { type: String, required: true, unique: true },
@@ -13,7 +13,8 @@ const UserSchema = new mongoose.Schema({
   },
   gender: { type: String, enum: ["male", "female", "other"] },
   bloodType: { type: String },
-  appointments: [{ type: mongoose.Types.ObjectId, ref: "Appointment" }],
+  appointments: [{ type: mongoose.Schema.Types.ObjectId, ref: "Appointment" }],
 });
 
-export default mongoose.model("User", UserSchema);
+const UserModel = mongoose.model("User", UserSchema);
+module.exports = UserModel;
