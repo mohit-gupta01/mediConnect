@@ -1,4 +1,6 @@
 const User = require('../models/UserSchema');
+const Booking = require('../models/BookingSchema');
+const Doctor = require('../models/DoctorSchema');
 
 const updateUser = async (req, res) => {
     const id = req.params.id;
@@ -53,12 +55,21 @@ const getUserProfile = async (req, res) => {
     }
 }
 
-// const getMyAppoinments = async (req, res) => {
-//     try {
-        
-//     } catch (error) {
-        
-//     }
-// }
+const getMyAppoinments = async (req, res) => {
+    try {
+        // 1. Get appointments for booking for specific user
+        const bookings = await Booking.find({ user: req.userId });
 
-module.exports = { updateUser, deleteUser, getSingleUser, getAllUser, getUserProfile };
+        // 2. Extract doctor ids from appointments bookings
+        const doctorIds = bookings.map(el => el.doctor.id);
+
+        // 3. get doctors using doctor ids and populate their details
+        const doctor = await Doctor.find({ _id: { $in: doctorIds } }).select("-password");
+
+        res.status(200).json({ success: true, message: "Appointments found", data: doctor });
+    } catch (error) {
+        res.status(500).json({ success: false, message: "Something went wrong, cannot get appointments" });
+    }
+}
+
+module.exports = { updateUser, deleteUser, getSingleUser, getAllUser, getUserProfile, getMyAppoinments };

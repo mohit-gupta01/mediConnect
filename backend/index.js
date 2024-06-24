@@ -7,6 +7,7 @@ const authRoutes = require('./routes/auth');
 const userRoutes = require('./routes/user');
 const doctorRoutes = require('./routes/doctor');
 const reviewRoutes = require('./routes/review');
+const bookingRoutes = require('./routes/booking');
 
 dotenv.config();
 const app = express();
@@ -23,6 +24,7 @@ app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1/users', userRoutes);
 app.use('/api/v1/doctors', doctorRoutes);
 app.use('/api/v1/reviews', reviewRoutes);
+app.use('/api/v1/bookings', bookingRoutes);
 
 
 const connectDB = async () => {
